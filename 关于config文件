@@ -1,0 +1,9 @@
+我查看了config文件的内容，大致就是workpath,filepath,args,Envirs这4个字符串。
+前面2个固定启动程序目录，第三个空，最后一个其实是系统环境变量，可以通关下面方式读取：
+            foreach (DictionaryEntry DEntry in Environment.GetEnvironmentVariables())
+            {
+                 strEnvirs.Add ( new NameValue( DEntry.Key.ToString() , DEntry.Value.ToString() ) ) ;
+            }
+这样就可以省去获取config的步骤，直接启动目标程序。
+
+不过我查看了一下上面的系统变量，与config文件的有出入，但不影响使用。
